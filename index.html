@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лорд Рубано — сайт-визитка</title>
+  <style>
+    /* Базовые переменные и сброс отступов */
+    :root {
+      --bg: #0E1116;
+      --card: #161B22;
+      --text: #E6EDF3;
+      --muted: #9AA7B3;
+      --accent: #58A6FF;
+      --accent-soft: rgba(88, 166, 255, 0.18);
+      --border: rgba(230, 237, 243, 0.12);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.5;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(88, 166, 255, 0.14), transparent 34%),
+        radial-gradient(circle at 80% 10%, rgba(166, 255, 203, 0.08), transparent 30%),
+        var(--bg);
+    }
+
+    /* Центральная карточка визитки */
+    .card {
+      width: 480px;
+      max-width: 92%;
+      padding: 36px;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    /* CSS-аватар с инициалами */
+    .avatar {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #FFFFFF;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, #58A6FF 0%, #7C3AED 52%, #F97316 100%);
+      box-shadow: 0 0 0 8px var(--accent-soft), 0 14px 34px rgba(88, 166, 255, 0.22);
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      font-size: clamp(32px, 7vw, 46px);
+      line-height: 1.1;
+    }
+
+    .role {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .tagline {
+      margin-bottom: 30px;
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    section {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+    }
+
+    .about {
+      margin-bottom: 0;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .contacts {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contacts a {
+      display: block;
+      padding: 10px 14px;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .contacts a:hover,
+    .contacts a:focus-visible {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    /* Круглые CSS-иконки социальных сетей */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .social {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: rgba(88, 166, 255, 0.08);
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .social:hover,
+    .social:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Адаптация для узких экранов */
+    @media (max-width: 500px) {
+      body {
+        padding: 20px 0;
+      }
+
+      .card {
+        width: 92%;
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Сайт-визитка Лорда Рубано">
+    <div class="avatar" aria-hidden="true">ЛР</div>
+
+    <h1>Лорд Рубано</h1>
+    <p class="role">CEO светотехнической компании · AI-фабрика контента</p>
+    <p class="tagline">Превращаю свет и данные в результат</p>
+
+    <section aria-labelledby="about-title">
+      <h2 id="about-title">Обо мне</h2>
+      <p class="about">
+        Работаю на стыке инженерии, света и AI, соединяя точные технические решения с быстрым производством контента.
+        Помогаю командам проектировать световые системы, находить сильные визуальные идеи и превращать данные в понятные бизнес-результаты.
+      </p>
+    </section>
+
+    <section aria-labelledby="contacts-title">
+      <h2 id="contacts-title">Контакты</h2>
+      <ul class="contacts">
+        <li><a href="mailto:lord@example.com">Email: lord@example.com</a></li>
+        <li><a href="tel:+70000000000">Телефон: +7 000 000-00-00</a></li>
+        <li><a href="https://t.me/lordrubano">Telegram: @lordrubano</a></li>
+      </ul>
+
+      <nav class="socials" aria-label="Социальные сети">
+        <a class="social" href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
+        <a class="social" href="https://github.com/" aria-label="GitHub">GH</a>
+        <a class="social" href="https://t.me/lordrubano" aria-label="Telegram">TG</a>
+      </nav>
+    </section>
+
+    <footer>© 2026, Лорд Рубано. Сделано в Antigravity</footer>
+  </main>
+</body>
+</html>
